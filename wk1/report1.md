@@ -23,6 +23,6 @@ def factors(N):
 
 ### Part A
 
-Since multiplication, division, modulo, addition, and subtraction all take constant time, the main part of the algorithm to consider is the while loop.
+Since multiplication, division, modulo, addition, and subtraction all take constant time, the main part of the algorithm to consider are the 2 while loops and how many times they iterate.
 
-The best case scenario for this algorithm would be if the input `N` only has small prime factors. A good example of this is any `N` where 2<sup>N</sup>
+The best case scenario for this algorithm would be if the input `N` is a power of 2 (N = 2<sup>k</sup>). Let us take a look at 2048 (2<sup>11</sup>). For this example the prime factors would be equal to `[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]`. On the first iteration of the outer loop `i == 2` and `num` starts at `N`. The inner loop then divides num by 2 repeatedly, appending each divisor to the result list, until num is reduced to 1. For 2048, this loop runs a total of 11 times. Since the inner loop halves num until it reaches 1, and N = 2<sup>k</sup>, the inner loop runs k times, where k = log<sub>2</sub>N. Once `N` is reduced to 1, the outer loop condition evalutes to false, causing the loop to terminate after just 1 outer loop iteration. This means the best case scenario time complexity is $\theta$(logN).
