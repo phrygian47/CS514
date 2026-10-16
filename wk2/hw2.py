@@ -58,5 +58,45 @@ def partition(arr, low, high):
 def main():
     input = [8,2,5,3,9,4,7,6,1]
     print(rank_smallest(input, 0, len(input)-1, 2))
-
+    tools = [
+    "rphfmwevhwlezohyeehbrcewjxvceziftiqtntfsr",
+    "ugtiznorvonzjfeacg",
+    "ayapwlmbzitzszhzkosvnknberbltlkggdgpljfisyltmmfvhybljvkypcflsaqevcijcyrgmqirzniaxakholawoydvc",
+    "eigttxwpukzj",
+    "xbrtspfttotafsngqvoijxuvqbztvaalsehzxbshnrvbykjq",
+    "zzfmlvyoshiktodnsjjpqplciklzqrxloqxrudygjtyzleizmeainxslwhhjwslqendjvxjyghrveuvp",
+    "nqtsdtwxcktmwwwsdthzmlmbhjkmo",
+    "pbqurqfxgqlojmwsomowsjvpvhznbsilhhdkbdxqgrgedpzchrgefeukmcow",
+    "znwhpiiduxdnnlbnmyjyssbsococdzcuunkrfduvouaghhcyvmlkzaajpfpyljtyjjpyn",
+    "efxiswjutenuycpbcnmhfuqmmidmvknyxmywegmtunodvuzygvguxtrdsdfzfssmeluodjgdgzfmrazvndtaurdkugsbdpawxit",
+    "dubbqeonycaegxfjkklrfkraoheucsvpiteqrswgkaaaohxxzhqjtkqaqhkwberbpmglbjipnujywogwcz"
+]
+    print(toolchanger(tools, 10, "efxiswjutenuycpbcnmhfuqmmidmvknyxmywegmtunodvuzygvguxtrdsdfzfssmeluodjgdgzfmrazvndtaurdkugsbdpawxit"))
+def toolchanger(tools, startIndex, target):
+    
+    least = 0
+    #Check left
+    i = startIndex
+    movesl = 0
+    print
+    while tools[i] != target:
+        if i - 1 >= 0:
+            movesl += 1
+            i -= 1
+        else:
+            movesl += 1
+            i = len(tools) - 1   
+    #Check right
+    i = startIndex
+    movesr = 0
+    while tools[i] != target:
+        if (i + 1) < len(tools) - 1:
+            movesr += 1
+            i += 1
+        else:
+            movesr += 1
+            i = 0
+    least = min(movesl, movesr)
+    return least
 main()
+
